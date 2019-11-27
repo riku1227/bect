@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../css/materialy.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+    <script type="module" src="index.js"></script>
+</head>
+
+<body>
+    <header class="materialy-app-bar-top">
+    </header>
+    <nav class="materialy-navigation-drawer materialy-navigation-drawer__modal">
+    </nav>
+    <label class="materialy-navigation-drawer__modal--scrim" for="materialy-app-bar-top--checkbox"></label>
+    <main class="materialy-content materialy-layout--center">
+        <div
+            class="materialy-layout--linearlayout__vertical__full materialy-layout--content-center materialy-layout--padding-top-bottom-16">
+            <div class="materialy-card__fit sticky">
+                <p class="materialy-card--title">Effectコマンド生成</p>
+                <div class="materialy-layout--linearlayout__horizontal__full materialy-layout--content-center">
+                    <div style="flex: 9;" class="materialy-text-field" id="resultCommand">
+                        <input type="text" class="materialy-text-field--input" placeholder=" " id="resultInput">
+                        <div class="materialy-text-field--border">
+                            <div class="materialy-text-field--border--first"></div>
+                            <div class="materialy-text-field--border--hint">
+                                <span class="materialy-text-field--hint">コマンド</span>
+                            </div>
+                            <div class="materialy-text-field--border--end"></div>
+                        </div>
+                    </div>
+                    <button style="height: 48px;"
+                        class="materialy-button--outline__primary materialy-ripple__primary" data-clipboard-target="#resultInput">コピー</button>
+                </div>
+                <div class="materialy-layout--linearlayout__horizontal__full materialy-layout--content-center">
+                    <div style="width: 10rem;" class="materialy-text-field" id="selector">
+                        <input type="text" class="materialy-text-field--input" placeholder=" " value="@p">
+                        <div class="materialy-text-field--border__primary">
+                            <div class="materialy-text-field--border--first"></div>
+                            <div class="materialy-text-field--border--hint">
+                                <span class="materialy-text-field--hint">付与対象</span>
+                            </div>
+                            <div class="materialy-text-field--border--end"></div>
+                        </div>
+                    </div>
+                    <div style="width: 10rem;" class="materialy-text-field" id="amplifier">
+                        <input type="number" class="materialy-text-field--input" placeholder=" " value="1" onkeyup="window.amplifierKeyUp(this);">
+                        <div class="materialy-text-field--border__primary">
+                            <div class="materialy-text-field--border--first"></div>
+                            <div class="materialy-text-field--border--hint">
+                                <span class="materialy-text-field--hint">付与レベル</span>
+                            </div>
+                            <div class="materialy-text-field--border--end"></div>
+                        </div>
+                    </div>
+                    <div style="width: 10rem;" class="materialy-text-field" id="seconds">
+                        <input type="number" class="materialy-text-field--input" placeholder=" " value="1" onkeyup="window.secondsKeyUp(this);">
+                        <div class="materialy-text-field--border__primary">
+                            <div class="materialy-text-field--border--first"></div>
+                            <div class="materialy-text-field--border--hint">
+                                <span class="materialy-text-field--hint">付与時間</span>
+                            </div>
+                            <div class="materialy-text-field--border--end"></div>
+                        </div>
+                    </div>
+                    <div style="width: 15rem;" class="materialy-text-field" id="hideParticles">
+                        <input type="text" class="materialy-text-field--input" placeholder=" " value="false">
+                        <div class="materialy-text-field--border__primary">
+                            <div class="materialy-text-field--border--first"></div>
+                            <div class="materialy-text-field--border--hint">
+                                <span class="materialy-text-field--hint">パーティクル非表示</span>
+                            </div>
+                            <div class="materialy-text-field--border--end"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="box-sizing: border-box; padding: 8px;" class="materialy-card__fit">
+                <p class="materialy-card--title">Effect一覧</p>
+                <table id="effectTable">
+                    <tr>
+                        <th class="mcbe-command-gen-table--icon">アイコン</th>
+                        <th class="mcbe-command-gen-table--name">エフェクト名</th>
+                        <th class="mcbe-command-gen-table--description">詳細</th>
+                    </tr>
+                    <tr>
+                        <td class="mcbe-command-gen-table--center">
+                            <img src="../images/effect_icon/speed_effect.png">
+                        </td>
+                        <td>スピード</td>
+                        <td>
+                            移動速度が上昇する
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Test</td>
+                        <td>aaaaa</td>
+                        <td>informatioddsfsdfosighifghfdiuhgfduhasdfisodghfdiughdfuighuighdfhgiufgui</td>
+                    </tr>
+                    <tr>
+                        <td>Test</td>
+                        <td>aaaaa</td>
+                        <td>informatioddsfsdfosighifghfdiuhgfduhasdfisodghfdiughdfuighuighdfhgiufgui</td>
+                    </tr>
+                    <tr>
+                        <td>Test</td>
+                        <td>aaaaa</td>
+                        <td>informatioddsfsdfosighifghfdiuhgfduhasdfisodghfdiughdfuighuighdfhgiufgui</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </main>
+</body>
+<script type="module" src="../script/main.js"></script>
+
+</html>

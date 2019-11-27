@@ -1,0 +1,78 @@
+table {
+    width: 100%;
+    color: var(--materialy-text-color);
+    border-collapse:  collapse;
+    table-layout: fixed;
+}
+
+th, td {
+    border-style: solid;
+    border-width: 2px;
+    border-color: var(--materialy-text-color-medium);
+    padding: 4px;
+    word-wrap: break-word;
+    font-size: 1.2rem;
+}
+
+td > img {
+    width: 85%;
+}
+
+tr:nth-child(even) {
+    background-color:  var(--materily-surface-hover-color);
+}
+
+tr:hover {
+    background-color:  var(--materily-surface-active-color);
+}
+
+tr:active {
+    background-color: var(--materily-surface-color);
+}
+
+.sticky {
+    position: sticky;
+    top: 0px;
+}
+
+.mcbe-command-gen-table--center {
+    text-align: center;
+}
+
+.mcbe-command-gen-table--icon {
+    width: 15%;
+}
+
+.mcbe-command-gen-table--name {
+    width: 30%;
+}
+
+.mcbe-command-gen-table--description {
+    width: 55%;
+}
+
+/* Smartphone */
+
+@media screen and (max-width: 1185px) {
+    td > img {
+        width: 45%;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    td > img {
+        width: 65%;
+    }
+}
+
+@media screen and (max-width: 560px) {
+    td > img {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 1186px) {
+    td > img {
+        width: 30%;
+    }
+}

@@ -1,0 +1,161 @@
+{
+    "data_version": "1.13.1",
+    "effect_data": [
+        {
+            "id": "speed",
+            "icon": "speed_effect",
+            "name": "スピード",
+            "description": "移動速度が上昇する"
+        },
+        {
+            "id": "slowness",
+            "icon": "slowness_effect",
+            "name": "鈍化",
+            "description": "移動速度が低下する"
+        },
+        {
+            "id": "haste",
+            "icon": "haste_effect",
+            "name": "勤勉",
+            "description": "採掘速度が上昇する"
+        },
+        {
+            "id": "mining_fatigue",
+            "icon": "mining_fatigue_effect",
+            "name": "疲労",
+            "description": "採掘速度が減少する"
+        },
+        {
+            "id": "strength",
+            "icon": "strength_effect",
+            "name": "力",
+            "description": "攻撃力が上昇する"
+        },
+        {
+            "id": "weakness",
+            "icon": "weakness_effect",
+            "name": "弱体化",
+            "description": "攻撃力が減少する"
+        },
+        {
+            "id": "instant_health",
+            "icon": "hud_mob_effect_background",
+            "name": "回復",
+            "description": "即時回復する"
+        },
+        {
+            "id": "instant_damage",
+            "icon": "hud_mob_effect_background",
+            "name": "ダメージ",
+            "description": "ダメージを受ける"
+        },
+        {
+            "id": "jump_boost",
+            "icon": "jump_boost_effect",
+            "name": "跳躍",
+            "description": "ジャンプ力が上昇する"
+        },
+        {
+            "id": "nausea",
+            "icon": "nausea_effect",
+            "name": "目まい",
+            "description": "視界がぐにゃぐにゃになる"
+        },
+        {
+            "id": "regeneration",
+            "icon": "regeneration_effect",
+            "name": "再生",
+            "description": "HPが自動回復する"
+        },
+        {
+            "id": "poison",
+            "icon": "poison_effect",
+            "name": "毒",
+            "description": "一定時間ごとにダメージを受けるがHPが残り1になるとダメージを受けなくなる"
+        },
+        {
+            "id": "fatal_poison",
+            "icon": "poison_effect",
+            "name": "致死毒(毒)",
+            "description": "一定時間ごとにダメージを受ける、HPが1になってもダメージを受ける"
+        },
+        {
+            "id": "wither",
+            "icon": "wither_effect",
+            "name": "ウィザー",
+            "description": "一定時間ごとにダメージを受ける、HPが1になってもダメージを受ける"
+        },
+        {
+            "id": "resistance",
+            "icon": "resistance_effect",
+            "name": "耐性",
+            "description": "受けるダメージを減少する"
+        },
+        {
+            "id": "fire_resistance",
+            "icon": "fire_resistance_effect",
+            "name": "耐火",
+            "description": "燃焼ダメージを無効化する"
+        },
+        {
+            "id": "water_breathing",
+            "icon": "water_breathing_effect",
+            "name": "水中呼吸",
+            "description": "水中でも空気ゲージが減らなくなる"
+        },
+        {
+            "id": "invisibility",
+            "icon": "invisibility_effect",
+            "name": "不可視",
+            "description": "透明になる"
+        },
+        {
+            "id": "blindness",
+            "icon": "blindness_effect",
+            "name": "目つぶし",
+            "description": "視界が極端に暗くなる"
+        },
+        {
+            "id": "night_vision",
+            "icon": "night_vision_effect",
+            "name": "暗視",
+            "description": "常に明るく見えるようになる"
+        },
+        {
+            "id": "hunger",
+            "icon": "hunger_effect",
+            "name": "空腹",
+            "description": "空腹度が徐々になくなっていく"
+        },
+        {
+            "id": "saturation",
+            "icon": "hud_mob_effect_background",
+            "name": "飽和",
+            "description": "空腹度が徐々に回復していく"
+        },
+        {
+            "id": "health_boost",
+            "icon": "health_boost_effect",
+            "name": "HPブースト",
+            "description": "Lv 1ごとにHPが4(ハート2つ)増えていく"
+        },
+        {
+            "id": "absorption",
+            "icon": "absorption_effect",
+            "name": "吸収",
+            "description": "Lv 1ごとに使い切りのHPが4(ハート2つ)増えていく"
+        },
+        {
+            "id": "levitation",
+            "icon": "levitation_effect",
+            "name": "浮遊",
+            "description": "浮遊する"
+        },
+        {
+            "id": "slow_falling",
+            "icon": "slow_falling_effect",
+            "name": "低速落下",
+            "description": "ゆっくりと降下するようになる"
+        }
+    ]
+}

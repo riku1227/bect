@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../css/materialy.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+</head>
+
+<body>
+    <header class="materialy-app-bar-top">
+    </header>
+    <nav class="materialy-navigation-drawer materialy-navigation-drawer__modal">
+    </nav>
+    <label class="materialy-navigation-drawer__modal--scrim" for="materialy-app-bar-top--checkbox"></label>
+    <main class="materialy-content materialy-layout--center">
+        <div
+            class="materialy-layout--linearlayout__vertical__full materialy-layout--content-center materialy-layout--padding-top-bottom-16">
+            <div style="box-sizing: border-box;" class="materialy-card__fit">
+                <p class="materialy-card--title">RawText生成</p>
+                <div class="materialy-layout--linearlayout__horizontal__full materialy-layout--content-center">
+                    <div style="width: 90%; font-size: 1rem; height: 9.5rem;" class="materialy-text-field" id="text">
+                        <textarea style="height: 100%; font-family: inherit;" type="text"
+                            class="materialy-text-field--input" placeholder=" "></textarea>
+                        <div class="materialy-text-field--border__primary">
+                            <div class="materialy-text-field--border--first"></div>
+                            <div class="materialy-text-field--border--hint">
+                                <span class="materialy-text-field--hint">テキスト</span>
+                            </div>
+                            <div class="materialy-text-field--border--end"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="materialy-layout--linearlayout__horizontal__full materialy-layout--content-center">
+                    <button class="materialy-button--outline__primary materialy-ripple__primary" id="generateAndCopy">生成&コピー</button>
+                </div>
+            </div>
+    
+            <div class="materialy-card__fit">
+                <p class="materialy-card--title">結果</p>
+                <div class="materialy-layout--linearlayout__horizontal__full materialy-layout--content-center">
+                    <div style="width: 90%; font-size: 1rem; height: 9.5rem;" class="materialy-text-field" id="result">
+                        <textarea style="height: 100%; font-family: inherit;" type="text"
+                            class="materialy-text-field--input" placeholder=" " id="resultInput"></textarea>
+                        <div class="materialy-text-field--border__primary">
+                            <div class="materialy-text-field--border--first"></div>
+                            <div class="materialy-text-field--border--hint">
+                                <span class="materialy-text-field--hint">生成結果</span>
+                            </div>
+                            <div class="materialy-text-field--border--end"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="materialy-layout--linearlayout__horizontal__full materialy-layout--content-center">
+                    <button class="materialy-button--outline__primary materialy-ripple__primary" data-clipboard-target="#resultInput" id="resultCopy">コピー</button>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+<script type="module" src="../script/main.js"></script>
+<script type="module" src="index.js"></script>
+
+</html>

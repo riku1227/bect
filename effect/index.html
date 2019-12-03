@@ -20,7 +20,7 @@
     <main class="materialy-content materialy-layout--center">
         <div
             class="materialy-layout--linearlayout__vertical__full materialy-layout--content-center materialy-layout--padding-top-bottom-16">
-            <div class="materialy-card__fit sticky">
+            <div class="materialy-card__fit sticky" id="effectCard">
                 <p class="materialy-card--title">Effectコマンド生成</p>
                 <div class="materialy-layout--linearlayout__horizontal__full materialy-layout--content-center">
                     <div style="flex: 9;" class="materialy-text-field" id="resultCommand">
@@ -87,31 +87,20 @@
                         <th class="mcbe-command-gen-table--name">エフェクト名</th>
                         <th class="mcbe-command-gen-table--description">詳細</th>
                     </tr>
-                    <tr>
-                        <td class="mcbe-command-gen-table--center">
-                            <img src="../images/effect_icon/speed_effect.png">
-                        </td>
-                        <td>スピード</td>
-                        <td>
-                            移動速度が上昇する
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Test</td>
-                        <td>aaaaa</td>
-                        <td>informatioddsfsdfosighifghfdiuhgfduhasdfisodghfdiughdfuighuighdfhgiufgui</td>
-                    </tr>
-                    <tr>
-                        <td>Test</td>
-                        <td>aaaaa</td>
-                        <td>informatioddsfsdfosighifghfdiuhgfduhasdfisodghfdiughdfuighuighdfhgiufgui</td>
-                    </tr>
-                    <tr>
-                        <td>Test</td>
-                        <td>aaaaa</td>
-                        <td>informatioddsfsdfosighifghfdiuhgfduhasdfisodghfdiughdfuighuighdfhgiufgui</td>
-                    </tr>
                 </table>
+            </div>
+            <div class="materialy-card__fit">
+                <p class="materialy-card--title">設定</p>
+                <div class="materialy-layout--linearlayout__vertical__full">
+                    <input type="checkbox" class="materialy-checkbox__primary" id="allowCookie">
+                    <label for="allowCookie" class="materialy-typography__body2">Cookieに設定を書き込んで設定を保存させる</label>
+                    <div class="materialy-layout--space"></div>
+                    <input type="checkbox" class="materialy-checkbox__primary" id="stickyEffectCard" checked>
+                    <label for="stickyEffectCard" class="materialy-typography__body2">エフェクト生成カードを固定する</label>
+                    <div class="materialy-layout--space"></div>
+                    <input type="checkbox" class="materialy-checkbox__primary" id="effectNameOnly">
+                    <label for="effectNameOnly" class="materialy-typography__body2">エフェクト名のみをコピーする</label>
+                </div>
             </div>
         </div>
     </main>

@@ -17,24 +17,55 @@ const getBaseURL = () => {
     return replacedURL;
 }
 
+const getCookieValue = (key) => {
+    if (document.cookie.indexOf(key) != -1) {
+        const splitCookie = document.cookie.split(";");
+        const keyCookie = splitCookie.filter((value) => {
+            if (value.indexOf(`${key}=`) != -1) {
+                return true;
+            } else {
+                return false;
+            }
+        });
+        return keyCookie[0].split("=")[1];
+    } else {
+        return false;
+    }
+}
+
+const isAllowCookie = () => {
+    if(document.cookie.indexOf("allow_cookie") != -1) {
+        return (getCookieValue("allow_cookie") == "true");
+    } else {
+        return false;
+    }
+}
+
 const baseURL = getBaseURL();
 
-window.generateEffectCommand = (effectID) => {
+const generateEffectCommand = (effectID) => {
     nowEffectID = effectID;
-    const selector = TextField.getValueByTextFieldDiv(document.getElementById("selector"));
-    const amplifier = TextField.getValueByTextFieldDiv(document.getElementById("amplifier"));
-    const seconds = TextField.getValueByTextFieldDiv(document.getElementById("seconds"));
-    const hideParticles = TextField.getValueByTextFieldDiv(document.getElementById("hideParticles"));
-    const result = `/effect ${selector} ${nowEffectID} ${seconds} ${(parseInt(amplifier) - 1)} ${hideParticles}`;
+    let result = "";
+    if(getCookieValue("effect_name_only") == "true") {
+        result = nowEffectID;
+    } else {
+        const selector = TextField.getValueByTextFieldDiv(document.getElementById("selector"));
+        const amplifier = TextField.getValueByTextFieldDiv(document.getElementById("amplifier"));
+        const seconds = TextField.getValueByTextFieldDiv(document.getElementById("seconds"));
+        const hideParticles = TextField.getValueByTextFieldDiv(document.getElementById("hideParticles"));
+        result = `/effect ${selector} ${nowEffectID} ${seconds} ${(parseInt(amplifier) - 1)} ${hideParticles}`;
+    }
     TextField.setValueByTextFieldDiv(
         document.getElementById("resultCommand"),
         result
     );
+
+    return result;
 }
 
 const createEffectTableItem = (effectData) => {
     return `
-<tr onclick="window.generateEffectCommand('${effectData.id}');">
+<tr class="tableItem" id="${effectData.id}">
     <td class="mcbe-command-gen-table--center">
         <img src="${baseURL}/images/effect_icon/${effectData.icon}.png">
     </td>
@@ -68,6 +99,76 @@ loadFile(`${baseURL}/effect/effect_data.json`, (text) => {
 });
 
 new ClipboardJS('.materialy-button--outline__primary');
+const tabelItemClipboard = new ClipboardJS(".tableItem", {
+    text: (trigger) => {
+        return generateEffectCommand(trigger.id);
+    }
+});
+
+const updateStickyEffectCard = () => {
+    const effectCard = document.getElementById("effectCard");
+    if(document.getElementById("stickyEffectCard").checked) {
+        effectCard.classList.add("sticky");
+    } else {
+        effectCard.classList.remove("sticky");
+    }
+}
+
+const loadCookieSetting = () => {
+    if(isAllowCookie()) {
+        document.getElementById("allowCookie").checked = true;
+        document.getElementById("stickyEffectCard").checked = getCookieValue("sticky_effect_card") == "true";
+        document.getElementById("effectNameOnly").checked = getCookieValue("effect_name_only") == "true";
+        updateStickyEffectCard();
+    }
+}
+
+const deleteAllCookie = ()=> {
+    document.cookie = "allow_cookie=false;max-age=0";
+    document.cookie = "sticky_effect_card=false;max-age=0";
+    document.cookie = "effect_name_only=false;max-age=0";
+}
+
+const writeAllCookie = () => {
+    document.cookie = "allow_cookie=true";
+    document.cookie = `sticky_effect_card=${document.getElementById("stickyEffectCard").checked}`;
+    document.cookie = `effect_name_only=${document.getElementById("effectNameOnly").checked}`;
+}
+
+loadCookieSetting();
+
+document.getElementById("allowCookie").addEventListener("change", (event) => {
+    if(event.target.checked) {
+        writeAllCookie();
+    } else {
+        deleteAllCookie();
+    }
+});
+
+document.getElementById("stickyEffectCard").addEventListener("change", (event) => {
+    updateStickyEffectCard();
+    if(event.target.checked) {
+        if(isAllowCookie()) {
+            document.cookie = "sticky_effect_card=true";
+        }
+    } else {
+        if(isAllowCookie()) {
+            document.cookie = "sticky_effect_card=false";
+        }
+    }
+});
+
+document.getElementById("effectNameOnly").addEventListener("change", (event) => {
+    if(event.target.checked) {
+        if(isAllowCookie()) {
+            document.cookie = "effect_name_only=true";
+        }
+    } else {
+        if(isAllowCookie()) {
+            document.cookie = "effect_name_only=false";
+        }
+    }
+})
 
 window.amplifierKeyUp = (input) => {
     if(parseInt(input.value) > 256) {

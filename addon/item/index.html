@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/materialy.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+</head>
+
+<body>
+    <header class="materialy-app-bar-top">
+    </header>
+    <nav class="materialy-navigation-drawer materialy-navigation-drawer__modal">
+    </nav>
+    <label class="materialy-navigation-drawer__modal--scrim" for="materialy-app-bar-top--checkbox"></label>
+    <main class="materialy-content materialy-layout--center">
+        <div
+            class="materialy-layout--linearlayout__vertical__full materialy-layout--content-center materialy-layout--padding-top-bottom-16">
+            <div style="box-sizing: border-box;" class="materialy-card__fit">
+                <p class="materialy-card--title">Add-On Item生成</p>
+                <div class="materialy-layout--linearlayout__vertical__full">
+                    <div>
+                        <div class="materialy-text-field" id="item_definition">
+                            <input type="text" class="materialy-text-field--input" placeholder=" ">
+                            <div class="materialy-text-field--border__accent">
+                                <div
+                                    class="materialy-text-field--border--first materialy-text-field--border__style-no-radius">
+                                </div>
+                                <div
+                                    class="materialy-text-field--border--hint materialy-text-field--border__style-no-radius">
+                                    <span class="materialy-text-field--hint">アイテムの定義</span>
+                                </div>
+                                <div
+                                    class="materialy-text-field--border--end materialy-text-field--border__style-no-radius">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="materialy-text-field" id="item_name">
+                            <input type="text" class="materialy-text-field--input" placeholder=" ">
+                            <div class="materialy-text-field--border__primary">
+                                <div
+                                    class="materialy-text-field--border--first materialy-text-field--border__style-no-radius">
+                                </div>
+                                <div
+                                    class="materialy-text-field--border--hint materialy-text-field--border__style-no-radius">
+                                    <span class="materialy-text-field--hint">アイテムの名前</span>
+                                </div>
+                                <div
+                                    class="materialy-text-field--border--end materialy-text-field--border__style-no-radius">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="materialy-text-field" id="item_icon">
+                            <input type="text" class="materialy-text-field--input" placeholder=" ">
+                            <div class="materialy-text-field--border__primary">
+                                <div
+                                    class="materialy-text-field--border--first materialy-text-field--border__style-no-radius">
+                                </div>
+                                <div
+                                    class="materialy-text-field--border--hint materialy-text-field--border__style-no-radius">
+                                    <span class="materialy-text-field--hint">アイテムのアイコン名</span>
+                                </div>
+                                <div
+                                    class="materialy-text-field--border--end materialy-text-field--border__style-no-radius">
+                                </div>
+                            </div>
+                        </div>
+
+                        <select class="select-box" id="item_category">
+                            <option disabled selected value="none">カテゴリー</option>
+                            <option value="none">無し</option>
+                            <option value="Construction">Construction</option>
+                            <option value="Equipment">Equipment</option>
+                            <option value="Items">Items</option>
+                            <option value="Nature">Nature</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <div class="materialy-text-field" id="max_stack_size">
+                            <input type="text" class="materialy-text-field--input" placeholder=" " value="64">
+                            <div class="materialy-text-field--border__primary">
+                                <div
+                                    class="materialy-text-field--border--first materialy-text-field--border__style-no-radius">
+                                </div>
+                                <div
+                                    class="materialy-text-field--border--hint materialy-text-field--border__style-no-radius">
+                                    <span class="materialy-text-field--hint">最大スタック数</span>
+                                </div>
+                                <div
+                                    class="materialy-text-field--border--end materialy-text-field--border__style-no-radius">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <input type="checkbox" class="materialy-checkbox__primary" id="hand_equipped">
+                    <label for="hand_equipped" class="materialy-typography__body2">剣のように持つようにする</label>
+                    <div class="materialy-layout--space"></div>
+                    <input type="checkbox" class="materialy-checkbox__primary" id="stacked_by_data">
+                    <label for="stacked_by_data" class="materialy-typography__body2">データ値の違うアイテムをスタックできないようにする</label>
+                    <div class="materialy-layout--space"></div>
+                    <input type="checkbox" class="materialy-checkbox__primary" id="foil">
+                    <label for="foil" class="materialy-typography__body2">エンチャン時のようにきらめかせる</label>
+                    <div class="materialy-layout--space"></div>
+                    <div>
+                        <input type="checkbox" class="materialy-checkbox__primary" id="is_block">
+                        <label for="is_block" class="materialy-typography__body2">見た目をブロックにする</label>
+
+                        <div class="materialy-text-field invisile" id="block">
+                            <input type="text" class="materialy-text-field--input" placeholder=" ">
+                            <div class="materialy-text-field--border__primary">
+                                <div
+                                    class="materialy-text-field--border--first materialy-text-field--border__style-no-radius">
+                                </div>
+                                <div
+                                    class="materialy-text-field--border--hint materialy-text-field--border__style-no-radius">
+                                    <span class="materialy-text-field--hint">ブロック名</span>
+                                </div>
+                                <div
+                                    class="materialy-text-field--border--end materialy-text-field--border__style-no-radius">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="materialy-layout--space"></div>
+                    <input type="checkbox" class="materialy-checkbox__primary" id="is_food">
+                    <label for="is_food" class="materialy-typography__body2">食べ物にする</label>
+
+                    <div class="invisile" id="foodContainer">
+                        <div>
+                            <div class="materialy-text-field" id="nutrition">
+                                <input type="text" class="materialy-text-field--input" placeholder=" ">
+                                <div class="materialy-text-field--border__accent">
+                                    <div
+                                        class="materialy-text-field--border--first materialy-text-field--border__style-no-radius">
+                                    </div>
+                                    <div
+                                        class="materialy-text-field--border--hint materialy-text-field--border__style-no-radius">
+                                        <span class="materialy-text-field--hint">回復量</span>
+                                    </div>
+                                    <div
+                                        class="materialy-text-field--border--end materialy-text-field--border__style-no-radius">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <select class="select-box" id="saturation_modifier">
+                                <option disabled selected value="normal">隠し満腹度</option>
+                                <option value="poor">poor</option>
+                                <option value="low">low</option>
+                                <option value="normal">normal</option>
+                                <option value="good">good</option>
+                                <option value="max">max</option>
+                                <option value="supernatural">supernatural</option>
+                            </select>
+
+                            <div class="materialy-text-field" id="use_duration">
+                                <input type="text" class="materialy-text-field--input" placeholder=" " value="32">
+                                <div class="materialy-text-field--border__accent">
+                                    <div
+                                        class="materialy-text-field--border--first materialy-text-field--border__style-no-radius">
+                                    </div>
+                                    <div
+                                        class="materialy-text-field--border--hint materialy-text-field--border__style-no-radius">
+                                        <span class="materialy-text-field--hint">食べるのにかかる時間</span>
+                                    </div>
+                                    <div
+                                        class="materialy-text-field--border--end materialy-text-field--border__style-no-radius">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <input type="checkbox" class="materialy-checkbox__primary" id="is_using_converts_to">
+                            <label for="is_using_converts_to" class="materialy-typography__body2">食べたときにアイテムを返還する</label>
+
+                            <div class="materialy-text-field invisile" id="using_converts_to">
+                                <input type="text" class="materialy-text-field--input" placeholder=" ">
+                                <div class="materialy-text-field--border__primary">
+                                    <div
+                                        class="materialy-text-field--border--first materialy-text-field--border__style-no-radius">
+                                    </div>
+                                    <div
+                                        class="materialy-text-field--border--hint materialy-text-field--border__style-no-radius">
+                                        <span class="materialy-text-field--hint">返還されるアイテム</span>
+                                    </div>
+                                    <div
+                                        class="materialy-text-field--border--end materialy-text-field--border__style-no-radius">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="materialy-layout--space"></div>
+                        <div>
+                            <input type="checkbox" class="materialy-checkbox__primary" id="is_cooltime">
+                            <label for="is_cooltime" class="materialy-typography__body2">クールタイムを設定する</label>
+
+                            <div class="materialy-text-field invisile" id="cooltime">
+                                <input type="text" class="materialy-text-field--input" placeholder=" ">
+                                <div class="materialy-text-field--border__primary">
+                                    <div
+                                        class="materialy-text-field--border--first materialy-text-field--border__style-no-radius">
+                                    </div>
+                                    <div
+                                        class="materialy-text-field--border--hint materialy-text-field--border__style-no-radius">
+                                        <span class="materialy-text-field--hint">クールタイム</span>
+                                    </div>
+                                    <div
+                                        class="materialy-text-field--border--end materialy-text-field--border__style-no-radius">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="materialy-layout--space"></div>
+                        <input type="checkbox" class="materialy-checkbox__primary" id="can_always_eat">
+                        <label for="can_always_eat" class="materialy-typography__body2">常に食べられるようにする</label>
+                        <div class="materialy-layout--space"></div>
+                        <p class="materialy-card--subtitle">エフェクト</p>
+                        <div class="materialy-layout--linearlayout__vertical__full" id="effectContainer">
+                        </div>
+                        <div class="materialy-layout--space"></div>
+                        <div>
+                            <button class="materialy-button--outline__primary materialy-ripple__primary" id="addEffect">追加する</button>
+                            <button class="materialy-button--outline__primary materialy-ripple__primary" id="removeEffect">削除する</button>
+                        </div>
+                    </div>
+
+                    <div class="materialy-layout--space"></div>
+                    <div>
+                        <button class="materialy-button--outline__accent materialy-ripple__accent" id="generate">生成</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="materialy-card__fit">
+                <p class="materialy-card--title">結果</p>
+                <div class="materialy-layout--linearlayout__horizontal__full materialy-layout--content-center">
+                    <div style="width: 100%;" class="materialy-layout--linearlayout__vertical__full materialy-layout--left">
+                        <p class="materialy-card--subtitle" id="resourceItemJsonName">ResourcePack/items/$itemDefinition.json</p>
+                    </div>
+                    <div style="width: 95%; font-size: 1rem; height: 9.5rem;" class="materialy-text-field"
+                        id="resultResourceItemJson">
+                        <textarea style="height: 100%; font-family: inherit;" type="text" class="materialy-text-field--input"
+                            placeholder=" " id="resultResourceItemJsonInput"></textarea>
+                        <div class="materialy-text-field--border__primary">
+                            <div class="materialy-text-field--border--first"></div>
+                            <div class="materialy-text-field--border--hint">
+                                <span class="materialy-text-field--hint">生成結果</span>
+                            </div>
+                            <div class="materialy-text-field--border--end"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="materialy-layout--linearlayout__horizontal materialy-layout--content-center">
+                    <button class="materialy-button--outline__primary materialy-ripple__primary copyButton"
+                        data-clipboard-target="#resultResourceItemJsonInput">コピー</button>
+                </div>
+            
+                <div class="materialy-layout--linearlayout__horizontal__full materialy-layout--content-center">
+                    <div style="width: 100%;" class="materialy-layout--linearlayout__vertical__full materialy-layout--left">
+                        <p class="materialy-card--subtitle">ResourcePack/texts/en_US.lang</p>
+                    </div>
+                    <div style="width: 95%; font-size: 1rem; height: 9.5rem;" class="materialy-text-field"
+                        id="resultResourceTextsLang">
+                        <textarea style="height: 100%; font-family: inherit;" type="text" class="materialy-text-field--input"
+                            placeholder=" " id="resultResourceTextsLangInput"></textarea>
+                        <div class="materialy-text-field--border__primary">
+                            <div class="materialy-text-field--border--first"></div>
+                            <div class="materialy-text-field--border--hint">
+                                <span class="materialy-text-field--hint">生成結果</span>
+                            </div>
+                            <div class="materialy-text-field--border--end"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="materialy-layout--linearlayout__horizontal materialy-layout--content-center">
+                    <button class="materialy-button--outline__primary materialy-ripple__primary copyButton"
+                        data-clipboard-target="#resultResourceTextsLangInput">コピー</button>
+                </div>
+
+                <div class="materialy-layout--linearlayout__horizontal__full materialy-layout--content-center">
+                    <div style="width: 100%;" class="materialy-layout--linearlayout__vertical__full materialy-layout--left">
+                        <p class="materialy-card--subtitle">ResourcePack/textures/item_texture.json</p>
+                        <p class="materialy-card--text">テクスチャを追加する場合texture_dataの中に追記してください</p>
+                    </div>
+                    <div style="width: 95%; font-size: 1rem; height: 9.5rem;" class="materialy-text-field"
+                        id="resultResourceTextureJson">
+                        <textarea style="height: 100%; font-family: inherit;" type="text" class="materialy-text-field--input"
+                            placeholder=" " id="resultResourceTextureJsonInput"></textarea>
+                        <div class="materialy-text-field--border__primary">
+                            <div class="materialy-text-field--border--first"></div>
+                            <div class="materialy-text-field--border--hint">
+                                <span class="materialy-text-field--hint">生成結果</span>
+                            </div>
+                            <div class="materialy-text-field--border--end"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="materialy-layout--linearlayout__horizontal materialy-layout--content-center">
+                    <button class="materialy-button--outline__primary materialy-ripple__primary copyButton"
+                        data-clipboard-target="#resultResourceTextureJsonInput">コピー</button>
+                </div>
+
+                <div class="materialy-layout--linearlayout__horizontal__full materialy-layout--content-center">
+                    <div style="width: 100%;" class="materialy-layout--linearlayout__vertical__full materialy-layout--left">
+                        <p class="materialy-card--subtitle" id="behaviorItemJsonName">BehaviorPacks/items/$itemDefinition.json</p>
+                    </div>
+                    <div style="width: 95%; font-size: 1rem; height: 9.5rem;" class="materialy-text-field"
+                        id="resultBehaviorItemJson">
+                        <textarea style="height: 100%; font-family: inherit;" type="text" class="materialy-text-field--input"
+                            placeholder=" " id="resultBehaviorItemJsonInput"></textarea>
+                        <div class="materialy-text-field--border__primary">
+                            <div class="materialy-text-field--border--first"></div>
+                            <div class="materialy-text-field--border--hint">
+                                <span class="materialy-text-field--hint">生成結果</span>
+                            </div>
+                            <div class="materialy-text-field--border--end"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="materialy-layout--linearlayout__horizontal materialy-layout--content-center">
+                    <button class="materialy-button--outline__primary materialy-ripple__primary copyButton"
+                        data-clipboard-target="#resultBehaviorItemJsonInput">コピー</button>
+                </div>
+            </div>
+
+            <div class="materialy-card__fit">
+                <p class="materialy-card--title">Jsonファイルから読み込み</p>
+                <p class="materialy-card--subtitle">Behaviorのitem jsonを読み込んでください</p>
+                <input type="file" class="materialy-typography__body2" id="jsonFile">
+                <button class="materialy-button--outline__primary materialy-ripple__primary" id="loadJsonFile">読み込む</button>
+            </div>
+        </div>
+    </main>
+
+    <div class="invisile" id="invisibleContainer">
+    </div>
+</body>
+<script type="module" src="../../script/main.js"></script>
+<script type="module" src="index.js"></script>
+
+</html>

@@ -13,7 +13,10 @@ const loadFile = (url, callback) => {
 }
 
 const getBaseURL = () => {
-    const replacedURL = document.URL.replace("css/", "").replace("images/", "").replace("module/", "").replace("script/", "").replace("effect/", "").replace("rawtext/", "").replace(/\/$/, "");
+    const replacedURL = document.URL.replace("css/", "")
+    .replace("images/", "").replace("module/", "").replace("script/", "")
+    .replace("effect/", "").replace("rawtext/", "").replace("addon/", "")
+    .replace("item/", "").replace(/\/$/, "");
     return replacedURL;
 }
 

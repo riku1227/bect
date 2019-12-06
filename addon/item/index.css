@@ -1,0 +1,24 @@
+.select-box {
+    margin: 16px;
+    display: inline-block;
+    padding: 8px;
+    font-size: 1.498rem;
+    background-color: var(--materialy-surface-color);
+    border-color: var(--materily-surface-active-color);
+    color: var(--materialy-text-color-high);
+    outline: none;
+}
+
+.invisile {
+    display: none;
+}
+
+.visible {
+    display: inline-block;
+}
+
+.outline {
+    outline-style: solid;
+    outline-width: 1px;
+    outline-color: var(--materialy-text-color-medium);
+}
